@@ -1,0 +1,20 @@
+service_category,service_name,amount,unit,remarks
+Healthcare,General Consultation,500.00,per visit,Standard consultation fee
+Healthcare,Specialist Consultation,1500.00,per visit,For specialist doctors
+Healthcare,Emergency Room,2000.00,per visit,Emergency services
+Healthcare,Lab Tests - Basic,1000.00,per test,Basic blood work
+Healthcare,Lab Tests - Advanced,3000.00,per test,Advanced diagnostic tests
+Hospital,Ward Admission,5000.00,per day,Standard ward
+Hospital,ICU Admission,15000.00,per day,Intensive care unit
+Hospital,Operation Theater,10000.00,per use,Operation theater charges
+Hospital,Nursing Care,2000.00,per day,Standard nursing care
+Ambulance,Basic Ambulance,1000.00,per trip,Standard ambulance service
+Ambulance,Advanced Life Support,2500.00,per trip,With medical equipment
+Ambulance,Air Ambulance,50000.00,per trip,Emergency air transport
+Dentistry,Routine Checkup,300.00,per visit,Dental checkup
+Dentistry,Extraction,800.00,per tooth,Tooth extraction
+Dentistry,Root Canal,3000.00,per tooth,Root canal treatment
+Physiotherapy,Single Session,500.00,per session,45-minute session
+Physiotherapy,Package (10 sessions),4500.00,per package,10 sessions
+Optometry,Eye Checkup,400.00,per visit,Eye examination
+Optometry,Glasses Prescription,600.00,per visit,Glasses prescription
