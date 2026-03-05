@@ -32,8 +32,11 @@ st.markdown("""
 @st.cache_resource
 def init_supabase():
     try:
-        return SupabaseRatesClient()
-    except ValueError as e:
+       client = SupabaseRatesClient()
+        client.health_check()
+        return client
+    except Exception as e:
+        st.error(f"❌ Unable to initialize database connection: {e}")
         return None
 
 db = init_supabase()
