@@ -3,6 +3,7 @@ import os
 from typing import List, Dict, Optional
 import pandas as pd
 from supabase import create_client, Client
+from supabase.lib.client_options import SyncClientOptions
 from datetime import datetime
 import streamlit as st
 
@@ -17,7 +18,30 @@ class SupabaseRatesClient:
                 "SUPABASE_URL and SUPABASE_KEY environment variables must be set"
             )
         
-        self.client: Client = create_client(self.supabase_url, self.supabase_key)
+        self.client: Client = create_client(
+            self.supabase_url,
+            self.supabase_key,
+            options=SyncClientOptions(
+                postgrest_client_timeout=20,
+                storage_client_timeout=20,
+                function_client_timeout=10,
+            ),
+        )
+
+    def health_check(self) -> bool:
+        """Verify connectivity with a lightweight query."""
+        try:
+            self.client.table("gazetted_rates").select("id").limit(1).execute()
+            return True
+        except Exception as e:
+            raise ConnectionError(f"Supabase health check failed: {str(e)}") from e
+    def health_check(self) -> bool:
+        """Verify connectivity with a lightweight query."""
+        try:
+            self.client.table("gazetted_rates").select("id").limit(1).execute()
+            return True
+        except Exception as e:
+            raise ConnectionError(f"Supabase health check failed: {str(e)}") from e
     
     def get_all_years(self) -> List[int]:
         """Get list of all available years in database"""
