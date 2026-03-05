@@ -33,8 +33,8 @@ st.markdown("""
 def init_supabase():
     try:
        client = SupabaseRatesClient()
-        client.health_check()
-        return client
+       client.health_check()
+       return client
     except Exception as e:
         st.error(f"❌ Unable to initialize database connection: {e}")
         return None
